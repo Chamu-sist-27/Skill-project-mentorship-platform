@@ -17,7 +17,6 @@ const Login = () => {
     if (role === "mentor") navigate("/mentor/dashboard");
     if (role === "admin") navigate("/admin/dashboard");
   };
-
   return (
     <div>
       <h2>Login</h2>

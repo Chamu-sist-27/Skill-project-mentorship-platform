@@ -1,30 +1,40 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
-import SkillSelection from "./pages/SkillSelection";
 import LearnerDashboard from "./pages/LearnerDashboard";
 import MentorDashboard from "./pages/MentorDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+import SkillSelection from "./pages/SkillSelection";
 
-const role = localStorage.getItem("role");
 
 function App() {
+  const role = localStorage.getItem("role");
   return (
     <BrowserRouter>
-      <Route
-  path="/student/dashboard"
-  element={role === "student" ? <StudentDashboard /> : <Login />}
-/>
+    <h1 style={{ textAlign: "center" }}>APP IS RENDERING</h1>
+      <Routes>
+        <Route path="/" element={<Login />} />
 
-<Route
-  path="/mentor/dashboard"
-  element={role === "mentor" ? <MentorDashboard /> : <Login />}
-/>
+        <Route
+          path="/learner/dashboard"
+          element={role === "learner" ? <LearnerDashboard /> : <Login />}
+        />
 
-<Route
-  path="/admin/dashboard"
-  element={role === "admin" ? <AdminDashboard /> : <Login />}
-/>
+        <Route
+          path="/mentor/dashboard"
+          element={role === "mentor" ? <MentorDashboard /> : <Login />}
+        />
 
+        <Route
+          path="/admin/dashboard"
+          element={role === "admin" ? <AdminDashboard /> : <Login />}
+        />
+
+        <Route
+          path="/skills"
+          element={role === "learner" ? <SkillSelection /> : <Login />}
+        />
+      </Routes>
     </BrowserRouter>
   );
 }
