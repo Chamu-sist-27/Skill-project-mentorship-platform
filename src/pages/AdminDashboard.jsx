@@ -3,3 +3,9 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+const logout = () => {
+  localStorage.clear();
+  window.location.href = "/";
+};
+
+<button onClick={logout}>Logout</button>

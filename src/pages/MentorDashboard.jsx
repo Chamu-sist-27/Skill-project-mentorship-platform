@@ -3,3 +3,9 @@ const MentorDashboard = () => {
 };
 
 export default MentorDashboard;
+const logout = () => {
+  localStorage.clear();
+  window.location.href = "/";
+};
+
+<button onClick={logout}>Logout</button>

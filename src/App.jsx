@@ -5,15 +5,26 @@ import SkillSelection from "./pages/SkillSelection";
 import LearnerDashboard from "./pages/LearnerDashboard";
 import MentorDashboard from "./pages/MentorDashboard";
 
+const role = localStorage.getItem("role");
+
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/skills" element={<SkillSelection />} />
-        <Route path="/learner/dashboard" element={<LearnerDashboard />} />
-        <Route path="/mentor/dashboard" element={<MentorDashboard />} />
-      </Routes>
+      <Route
+  path="/student/dashboard"
+  element={role === "student" ? <StudentDashboard /> : <Login />}
+/>
+
+<Route
+  path="/mentor/dashboard"
+  element={role === "mentor" ? <MentorDashboard /> : <Login />}
+/>
+
+<Route
+  path="/admin/dashboard"
+  element={role === "admin" ? <AdminDashboard /> : <Login />}
+/>
+
     </BrowserRouter>
   );
 }

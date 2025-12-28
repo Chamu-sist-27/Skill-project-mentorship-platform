@@ -3,3 +3,9 @@ const LearnerDashboard = () => {
 };
 
 export default LearnerDashboard;
+const logout = () => {
+  localStorage.clear();
+  window.location.href = "/";
+};
+
+<button onClick={logout}>Logout</button>
